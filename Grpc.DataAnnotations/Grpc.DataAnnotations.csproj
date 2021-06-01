@@ -1,0 +1,9 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <AssemblyName>OpenCodeDev.EntityFramework.Permissions.Grpc.DataAnnotations</AssemblyName>
+    <RootNamespace>OpenCodeDev.EntityFramework.Permissions.Grpc.DataAnnotations</RootNamespace>
+  </PropertyGroup>
+
+</Project>
