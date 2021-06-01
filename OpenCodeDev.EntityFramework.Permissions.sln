@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31229.75
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Grpc.Shared", "Grpc.Shared\Grpc.Shared.csproj", "{F308160C-C2A4-468B-820E-F94BA660DACE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Permissions.Grpc", "Grpc\Permissions.Grpc.csproj", "{40319559-19C0-4792-8339-A35146CAE4E2}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Grpc.DataAnnotations", "Grpc.DataAnnotations\Grpc.DataAnnotations.csproj", "{AD65C752-E88B-4DFF-B1B5-87076570948E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Permissions.Grpc.DataAnnotations", "Grpc.DataAnnotations\Permissions.Grpc.DataAnnotations.csproj", "{1B0DE32A-3CF9-4F95-AE82-6E5A4C5BB295}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Grpc", "Grpc\Grpc.csproj", "{486A249F-E108-48D6-88D9-68015E85574D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Permissions.Grpc.Service", "Grpc.Service\Permissions.Grpc.Service.csproj", "{09D71199-3D68-4B73-A274-2FD679C855A6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,18 +15,18 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{F308160C-C2A4-468B-820E-F94BA660DACE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F308160C-C2A4-468B-820E-F94BA660DACE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F308160C-C2A4-468B-820E-F94BA660DACE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F308160C-C2A4-468B-820E-F94BA660DACE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AD65C752-E88B-4DFF-B1B5-87076570948E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AD65C752-E88B-4DFF-B1B5-87076570948E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AD65C752-E88B-4DFF-B1B5-87076570948E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AD65C752-E88B-4DFF-B1B5-87076570948E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{486A249F-E108-48D6-88D9-68015E85574D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{486A249F-E108-48D6-88D9-68015E85574D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{486A249F-E108-48D6-88D9-68015E85574D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{486A249F-E108-48D6-88D9-68015E85574D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40319559-19C0-4792-8339-A35146CAE4E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40319559-19C0-4792-8339-A35146CAE4E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40319559-19C0-4792-8339-A35146CAE4E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40319559-19C0-4792-8339-A35146CAE4E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B0DE32A-3CF9-4F95-AE82-6E5A4C5BB295}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B0DE32A-3CF9-4F95-AE82-6E5A4C5BB295}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B0DE32A-3CF9-4F95-AE82-6E5A4C5BB295}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B0DE32A-3CF9-4F95-AE82-6E5A4C5BB295}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09D71199-3D68-4B73-A274-2FD679C855A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09D71199-3D68-4B73-A274-2FD679C855A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09D71199-3D68-4B73-A274-2FD679C855A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09D71199-3D68-4B73-A274-2FD679C855A6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <AssemblyName>OpenCodeDev.EntityFramework.Permissions.Grpc.Service</AssemblyName>
+    <RootNamespace>OpenCodeDev.EntityFramework.Permissions.Grpc.Service</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="protobuf-net" Version="3.0.101" />
+    <PackageReference Include="protobuf-net.Grpc" Version="1.0.152" />
+    <PackageReference Include="System.ServiceModel.Primitives" Version="4.8.1" />
+  </ItemGroup>
+
+</Project>
