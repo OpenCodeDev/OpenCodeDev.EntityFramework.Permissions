@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Permissions.Grpc.DataAnnota
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Permissions.Grpc.Service", "Grpc.Service\Permissions.Grpc.Service.csproj", "{09D71199-3D68-4B73-A274-2FD679C855A6}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenCodeDev.Forms.Grpc.Extensions", "..\OpenCodeDev.Forms.Grpc\Extensions\OpenCodeDev.Forms.Grpc.Extensions.csproj", "{8803CC0E-833A-45CF-83C1-FDF9B8454963}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{09D71199-3D68-4B73-A274-2FD679C855A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{09D71199-3D68-4B73-A274-2FD679C855A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{09D71199-3D68-4B73-A274-2FD679C855A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8803CC0E-833A-45CF-83C1-FDF9B8454963}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8803CC0E-833A-45CF-83C1-FDF9B8454963}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8803CC0E-833A-45CF-83C1-FDF9B8454963}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8803CC0E-833A-45CF-83C1-FDF9B8454963}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

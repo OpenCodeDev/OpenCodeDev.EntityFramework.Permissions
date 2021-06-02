@@ -23,5 +23,6 @@ namespace OpenCodeDev.EntityFramework.Permissions.Grpc.Service.Models
         [ProtoMember(3)]
         [JsonProperty(IsReference = true, ItemReferenceLoopHandling = ReferenceLoopHandling.Ignore, ItemIsReference = true)]
         public virtual List<MPermission> Permissions { get; set; } = new List<MPermission>();
+
     }
 }

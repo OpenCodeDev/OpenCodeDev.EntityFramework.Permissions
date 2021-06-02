@@ -18,11 +18,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\OpenDevCode.EntityFramework.Permissions.Grpc.DataAnnotations\OpenDevCode.EntityFramework.Permissions.Grpc.DataAnnotations.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Api\" />
+    <ProjectReference Include="..\..\OpenCodeDev.Forms.Grpc\Extensions\OpenCodeDev.Forms.Grpc.Extensions.csproj" />
+    <ProjectReference Include="..\Grpc.Service\Permissions.Grpc.Service.csproj" />
+    <ProjectReference Include="..\Grpc.DataAnnotations\Permissions.Grpc.DataAnnotations.csproj" />
   </ItemGroup>
 
 </Project>

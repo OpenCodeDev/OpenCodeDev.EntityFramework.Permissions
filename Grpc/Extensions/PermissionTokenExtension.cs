@@ -13,6 +13,7 @@ using Microsoft.AspNetCore.Builder;
 using SymmetricSecurityKey = Microsoft.IdentityModel.Tokens.SymmetricSecurityKey;
 using System.IdentityModel.Tokens.Jwt;
 using Microsoft.AspNetCore.Http;
+using Newtonsoft.Json.Linq;
 
 namespace OpenCodeDev.EntityFramework.Permissions.Grpc.Extension
 {
@@ -50,13 +51,13 @@ namespace OpenCodeDev.EntityFramework.Permissions.Grpc.Extension
         /// </summary>
         /// <param name="accid">User Indentifier</param>
         /// <param name="role">Permission Role</param>
-        public static async Task<string> GenerateAuthToken(Guid accid, string role)
+        public static async Task<string> GenerateAuthToken(Guid accid, string[] role)
         {
 
             return await GenerateToken(new ClaimsIdentity(new[]
                 {
                     new Claim("identifier", accid.ToString()),
-                    new Claim("role", role)
+                    new Claim("roles", JObject.FromObject(role).ToString())
                 }), double.Parse(_config["JwtConfig:expiration_mins"]));
         }
        
@@ -120,9 +121,9 @@ namespace OpenCodeDev.EntityFramework.Permissions.Grpc.Extension
         /// Extract the Role out of decrypted token
         /// </summary>
         /// <param name="validKey">Decrypted token</param>
-        public static string ExtractRole(this JwtSecurityToken validKey)
+        public static string[] ExtractRole(this JwtSecurityToken validKey)
         {
-            return validKey.Claims.First(p => p.Type == "role").Value;
+            return JObject.Parse(validKey.Claims.First(p => p.Type == "roles").Value).ToObject<string[]>();
         }
 
         /// <summary>

@@ -157,9 +157,10 @@ namespace OpenCodeDev.EntityFramework.Permissions.Grpc.Extension
         /// <param name="builder">ModelBuilder Instance</param>
         public static void BuildPermissionModel(this ModelBuilder builder)
         {
-            builder.Entity<TPermissionRole>().HasMany(p => p.Permissions).WithOne(p => p.Role);
+            builder.Entity<TPermissionRole>().HasMany(p => p.Permissions).WithOne(p => p.Role).OnDelete(DeleteBehavior.Cascade);
             builder.Entity<TPermissionRole>().HasIndex(u => u.Id).IsUnique();
             builder.Entity<TPermissionTable>().HasIndex(u => u.Id).IsUnique();
+
         }
 
         public static void ThrowFailedPermission(this CallContext context){

@@ -19,10 +19,12 @@ using OpenCodeDev.EntityFramework.Permissions.Grpc.DataAnnotations;
 using System.Reflection;
 using OpenCodeDev.EntityFramework.Permissions.Grpc.Extension;
 using Microsoft.AspNetCore.Builder;
+using Permissions.Grpc.Api;
+using Microsoft.AspNetCore.Routing;
 
 namespace OpenCodeDev.EntityFramework.Permissions.Grpc.Middleware
 {
-    internal static class Options
+    internal static class MiddlewareOptions
     {
         public static Type Db { get; set; }
         public static bool IsCodeFirst { get; set; }
@@ -39,13 +41,25 @@ namespace OpenCodeDev.EntityFramework.Permissions.Grpc.Middleware
         /// </param>
         public static void UseGrpcPermissions(this IApplicationBuilder app, Type db, bool CodeFirst = false)
         {
-            Options.Db = db;
-            Options.IsCodeFirst = CodeFirst;
+            if (db == default)
+            {
+                throw new Exception("You must set a valid DatabaseContext as db.");
+            }
+            MiddlewareOptions.Db = db;
+            MiddlewareOptions.IsCodeFirst = CodeFirst;
             app.UseMiddleware<PermissionsMiddleware>();
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapGrpcService<ApiAuthentication>().EnableGrpcWeb().RequireCors("AllowAll");
+                endpoints.MapGrpcService<ApiPermission>().EnableGrpcWeb().RequireCors("AllowAll");
             });
+        }
+        public static void UseGrpcPermissionsEndpoint(this IEndpointRouteBuilder endpoints)
+        {
+            if (MiddlewareOptions.Db == default)
+            {
+                throw new Exception("You must call UseGrpcPermissions() before endpoints configuration.");
+            }
+            endpoints.MapGrpcService<ApiPermission>().EnableGrpcWeb().RequireCors("AllowAll");
         }
     }
 
@@ -61,7 +75,7 @@ namespace OpenCodeDev.EntityFramework.Permissions.Grpc.Middleware
         {
             string[] role = new string[] { "Public" }; // Default Role
             bool authenticated = false;
-
+            //TODO: Decrypt Account and Extract Roles from Token.
             var methodMeta = (GrpcMethodMetadata)context.GetEndpoint().Metadata.GetMetadata<GrpcMethodMetadata>();
             if (methodMeta == null) { await _next(context); }
 
@@ -78,7 +92,7 @@ namespace OpenCodeDev.EntityFramework.Permissions.Grpc.Middleware
                     OperationContractRolesAttribute permissionAttr = (OperationContractRolesAttribute)(validOperationContracts.GetCustomAttribute(typeof(OperationContractRolesAttribute)));
                     if (permissionAttr != null)
                     {
-                        if (Options.IsCodeFirst)
+                        if (MiddlewareOptions.IsCodeFirst)
                         {
                             bool pass = (role.Contains("Admin") || (permissionAttr.Roles.Contains("Autehnticated") && authenticated)
                             || role.Count(p => permissionAttr.Roles.Contains(p)) > 0);
@@ -97,7 +111,7 @@ namespace OpenCodeDev.EntityFramework.Permissions.Grpc.Middleware
                             var serviceScopeFactory = context.RequestServices.GetRequiredService<IServiceScopeFactory>();
                             using (var serviceScope = serviceScopeFactory.CreateScope())
                             {
-                                var db = (DbContext)serviceScope.ServiceProvider.GetService(Options.Db);
+                                var db = (DbContext)serviceScope.ServiceProvider.GetService(MiddlewareOptions.Db);
 
                                 var setPR = db.Set<TPermissionRole>();
                                 var setPT = db.Set<TPermissionTable>();

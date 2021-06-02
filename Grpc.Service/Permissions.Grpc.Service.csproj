@@ -13,4 +13,8 @@
     <PackageReference Include="System.ServiceModel.Primitives" Version="4.8.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Grpc.DataAnnotations\Permissions.Grpc.DataAnnotations.csproj" />
+  </ItemGroup>
+
 </Project>
